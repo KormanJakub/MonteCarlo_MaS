@@ -16,7 +16,10 @@ priklad7.MonteCarlo();
 
 Priklad8 priklad8 = new Priklad8();
 priklad8.MonteCarlo();
-*/
 
 Marton_Test3D_2021 marton = new Marton_Test3D_2021();
 marton.MonteCarlo();
+*/
+
+Priklad7 priklad7 = new Priklad7();
+priklad7.MonteCarlo();
