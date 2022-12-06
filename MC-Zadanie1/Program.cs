@@ -21,5 +21,5 @@ Marton_Test3D_2021 marton = new Marton_Test3D_2021();
 marton.MonteCarlo();
 */
 
-Priklad7 priklad7 = new Priklad7();
-priklad7.MonteCarlo();
+Priklad9 priklad9 = new Priklad9();
+priklad9.MonteCarlo();
