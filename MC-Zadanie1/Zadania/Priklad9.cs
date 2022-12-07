@@ -6,7 +6,6 @@ namespace MonteCarlo.Zadania
     public class Priklad9
     {
 
-
         public void MonteCarlo()
         {
 
