@@ -19,9 +19,6 @@ namespace MonteCarlo.Zadania
 
             var pravedpodobnostNaPrveDveMiestaFast = 0;
 
-            var celkoveBodyFast = 0;
-            var celkoveBodyFurious = 0;
-
             for (int i = 0; i < pocetReplikacii; i++)
             {
                 List<Cars> cars = new List<Cars>();
@@ -61,6 +58,9 @@ namespace MonteCarlo.Zadania
                 }
             }
 
+            var celkoveBodyFast = 0;
+            var celkoveBodyFurious = 0;
+
             for (int i = 0; i < pocetReplikacii; i++)
             {
                 var bodyFast = 0;
@@ -70,7 +70,7 @@ namespace MonteCarlo.Zadania
                 {
                     List<Cars> cars = new List<Cars>();
 
-                    for (int j = 0; j < jednotliveTypy; j++)
+                    for (int j = 0; j < 5; j++)
                     {
                         casFast = Math.Round(genCasFast.Sample(), 2);
                         var car = new Cars
@@ -82,7 +82,7 @@ namespace MonteCarlo.Zadania
                         cars.Add(car);
                     }
 
-                    for (int j = 0; j < jednotliveTypy; j++)
+                    for (int j = 0; j < 5; j++)
                     {
                         casFurious = Math.Round(genCasFurious.Sample(), 2);
                         var car = new Cars
@@ -98,15 +98,15 @@ namespace MonteCarlo.Zadania
                                      orderby car.Cas ascending
                                      select car;
 
-                    for (int y = 0; y < sortedCars.Count(); y++)
+                    for (int j = 0; j < sortedCars.Count(); j++)
                     {
-                        if (sortedCars.ElementAt(y).IsFast)
+                        if (sortedCars.ElementAt(j).IsFast)
                         {
-                            bodyFast += 10 - y;
+                            bodyFast += 10 - j;
                         }
                         else
                         {
-                            bodyFurious += 10 - y;
+                            bodyFurious += 10 - j;
                         }
                     }
                 }
