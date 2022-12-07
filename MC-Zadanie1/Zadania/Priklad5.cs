@@ -32,13 +32,13 @@ namespace MonteCarlo.Zadania
 
             for (int i = 0; i < pocetReplikacii; i++)
             {
-                bool vestica1 = genVestica1.Sample() < pravdepodobnostAno;
-                bool vestica2 = genVestica2.Sample() < pravdepodobnostAno;
-                bool vestica3 = genVestica3.Sample() < pravdepodobnostAno;
+                var vestica1 = genVestica1.Sample() < pravdepodobnostAno;
+                var vestica2 = genVestica2.Sample() < pravdepodobnostAno;
+                var vestica3 = genVestica3.Sample() < pravdepodobnostAno;
 
-                bool vestica1T = genVestica1.Sample() < genVesticaT1.Sample();
-                bool vestica2T = genVestica2.Sample() < genVesticaT2.Sample();
-                bool vestica3T = genVestica3.Sample() < genVesticaT3.Sample();
+                var vestica1T = genVestica1.Sample() < genVesticaT1.Sample();
+                var vestica2T = genVestica2.Sample() < genVesticaT2.Sample();
+                var vestica3T = genVestica3.Sample() < genVesticaT3.Sample();
 
                 if (vestica1 == vestica2)
                 {
