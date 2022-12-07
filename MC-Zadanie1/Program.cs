@@ -1,5 +1,6 @@
 ﻿using MonteCarlo.Zadania;
 using MonteCarlo.Minulorocne;
+using MonteCarlo._2015;
 
 /*
 Priklad1 priklad1 = new Priklad1();
@@ -25,7 +26,16 @@ priklad9.MonteCarlo();
 
 Marton_Test3D_2021 marton = new Marton_Test3D_2021();
 marton.MonteCarlo();
-*/
 
 Jankovic_Test3_2020 jankovic = new Jankovic_Test3_2020();
 jankovic.MonteCarlo();
+
+Zadanie_1 zadanie = new Zadanie_1();
+zadanie.MonteCarlo();
+
+Zadanie_2 zadanie = new Zadanie_2();
+zadanie.MonteCarlo();
+*/
+
+Zadanie_3 zadanie = new Zadanie_3();
+zadanie.MonteCarlo();
