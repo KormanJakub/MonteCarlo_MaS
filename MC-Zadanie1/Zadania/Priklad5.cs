@@ -86,9 +86,9 @@ namespace MonteCarlo.Zadania
             var priemernaPravde1a2a3T = ((double)pravde1a2a3T / pocetRovnakychPriTrochT) * 100;
 
             Console.WriteLine($"Prva a druha maju zaroven pravdu {Math.Round(priemernaPravde1a2, 2)}");
-            Console.WriteLine($"Prva a druha maju zaroven pravdu {Math.Round(priemernaPravde1a2a3, 2)}");
+            Console.WriteLine($"Prva, druha a tretia maju zaroven pravdu {Math.Round(priemernaPravde1a2a3, 2)}");
             Console.WriteLine($"Prva a druha maju zaroven pravdu {Math.Round(priemernaPravde1a2T, 2)}");
-            Console.WriteLine($"Prva a druha maju zaroven pravdu {Math.Round(priemernaPravde1a2a3T, 2)}");
+            Console.WriteLine($"Prva, druha a tretia zaroven pravdu {Math.Round(priemernaPravde1a2a3T, 2)}");
         }
     }
 }
