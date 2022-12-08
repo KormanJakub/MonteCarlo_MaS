@@ -49,5 +49,5 @@ Zadanie_3 zadanie = new Zadanie_3();
 zadanie.MonteCarlo();
 */
 
-Marton_Test3_2017 marton = new Marton_Test3_2017();
-marton.MonteCarlo();
+Medovniky_Test3 test3 = new Medovniky_Test3();
+test3.MonteCarlo();
