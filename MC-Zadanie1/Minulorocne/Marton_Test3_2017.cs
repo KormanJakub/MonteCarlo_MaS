@@ -25,10 +25,11 @@ namespace MonteCarlo.Minulorocne
 
             var pravedpodobnost = new UniformContinuousRNG();
 
-            var dobreUmiestnenie = 0;
+            var celkoveDobre = 0.0;
 
             for (int i = 0; i < pocetReplikacii; i++)
             {
+                var dobreUmiestnenie = 0;
                 for (int j = 1; j <= pretekarov; j++)
                 {
                     var casPretekara = 0.0;
@@ -37,37 +38,46 @@ namespace MonteCarlo.Minulorocne
                     casPretekara += casPlavania;
 
                     casCyklistika = genCasCyklistika.Sample();
-                    casDefekt = genCasDefekt.Sample();
                     
                     var pravdeCyklistika = pravedpodobnost.Sample();
+                    var pocetDefektov = 0;
 
                     if (pravdeCyklistika < 0.015)
                     {
-                        casPretekara += casDefekt * 3;
+                        pocetDefektov = 3;
                     } 
                     else if (pravdeCyklistika < 0.055)
                     {
-                        casPretekara += casDefekt * 2;
+                        pocetDefektov = 2;
                     } 
                     else if (pravdeCyklistika < 0.125)
                     {
-                        casPretekara += casDefekt;
+                        pocetDefektov = 1;
                     }
 
+                    for (int k = 0; k < pocetDefektov; k++)
+                    {
+                        casDefekt = genCasDefekt.Sample();
+                        casPretekara += casDefekt;
+                    }
                     casPretekara += casCyklistika;
 
-
                     casBeh = genCasBeh.Sample();
-                    casSnurok = genCasSnurok.Sample();
-
+                    var pocetSnurok = 0;
                     var praveSnurky = pravedpodobnost.Sample();
 
                     if (praveSnurky < 0.045)
                     {
-                        casPretekara += casSnurok * 2;
+                        pocetSnurok = 2;
                     } 
                     else if (praveSnurky < 0.145)
                     {
+                        pocetSnurok = 1;
+                    }
+
+                    for (int k = 0; k < pocetSnurok; k++)
+                    {
+                        casSnurok = genCasSnurok.Sample();
                         casPretekara += casSnurok;
                     }
 
@@ -78,9 +88,11 @@ namespace MonteCarlo.Minulorocne
                         dobreUmiestnenie++;
                     }
                 }
+
+                celkoveDobre += (double)dobreUmiestnenie / pretekarov;
             }
 
-            var priemernaPostupnost = (((double)dobreUmiestnenie / pretekarov) / pocetReplikacii) * 100;
+            var priemernaPostupnost = ((double)celkoveDobre / pocetReplikacii) * 100;
             Console.WriteLine($"Z regionalnych pretekov sa na celosloveske kvalifikovalo - {Math.Round(priemernaPostupnost, 2)} % pretekarov");
         }
     }

@@ -49,5 +49,5 @@ Zadanie_3 zadanie = new Zadanie_3();
 zadanie.MonteCarlo();
 */
 
-Marton_Test3D_2021 marton = new Marton_Test3D_2021();
+Marton_Test3_2017 marton = new Marton_Test3_2017();
 marton.MonteCarlo();
