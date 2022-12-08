@@ -1,5 +1,4 @@
-﻿using System.Collections.Immutable;
-using UNIZA.FRI.RandomNumberGenerators;
+﻿using UNIZA.FRI.RandomNumberGenerators;
 
 namespace MonteCarlo._2015
 {

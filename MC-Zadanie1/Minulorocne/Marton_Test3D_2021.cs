@@ -17,17 +17,24 @@ namespace MonteCarlo.Minulorocne
             var genKleslo = new TriangularRNG(10.0, 20.0, 30.0);
             var genStupnutie = new UniformContinuousRNG(0.1, 0.15);
 
-            var dobraCena = 0.0;
-            var dobryDen = 0.0;
+            double[] pohodaCena = new double[dni];
 
             for (int i = 0; i < pocetReplikacii; i++)
             {
-                var cenaIneDni = 150.0;
-                var kapacitaLietadla = 0.5;
-                var najnizsiaCena = 150.0;
-                var najlepsiDen = 0;
+                var cenaIneDni = 0.0;
+                var kapacitaLietadla = 0.0;
+                var cenaSaMeni = true;
+
                 for (int j = 0; j < dni; j++)
                 {
+                    if (j == 0)
+                    {
+                        cenaIneDni = 150.0;
+                        kapacitaLietadla = 0.5;
+                        pohodaCena[j] += cenaIneDni;
+                        continue;
+                    }
+
                     kleslo = Math.Round(genKleslo.Sample(), 2);
                     stupnutie = Math.Round(genStupnutie.Sample(), 2);
 
@@ -38,29 +45,37 @@ namespace MonteCarlo.Minulorocne
                         break;
                     }
 
-                    if (kapacitaLietadla <= naplnenost)
+                    if (cenaSaMeni)
                     {
-                        cenaIneDni -= (cenaIneDni / 100) * kleslo;
-                    } else
-                    {
-                        cenaIneDni += (cenaIneDni / 100) * narastCeny;
+                        if (kapacitaLietadla <= naplnenost)
+                        {
+                            cenaIneDni -= (cenaIneDni / 100) * kleslo;
+                        }
+                        else
+                        {
+                            cenaIneDni += (cenaIneDni / 100) * narastCeny;
+                            cenaSaMeni = false;
+                        }
                     }
 
-                    if (najnizsiaCena > cenaIneDni)
-                    {
-                        najnizsiaCena = cenaIneDni;
-                        najlepsiDen = j;
-                    }
+                    pohodaCena[j] += cenaIneDni;
                 }
-
-                dobraCena += najnizsiaCena;
-                dobryDen += najlepsiDen;
             }
 
-            var priemernaCena = (double)dobraCena / pocetReplikacii;
-            var priemernyDen = dobryDen / pocetReplikacii;
+            var najnizsiaCena = Double.MaxValue;
+            var najlepsiDen = -1;
 
-            Console.WriteLine($"Priemerná najnižšia cena letenky je {Math.Round(priemernaCena,2)} v deň {Math.Ceiling(priemernyDen)}");
+            for (int i = 0; i < dni; i++)
+            {
+                var priemernaCena = (double)pohodaCena[i] / pocetReplikacii;
+                if (najnizsiaCena > priemernaCena)
+                {
+                    najnizsiaCena = priemernaCena;
+                    najlepsiDen = i;
+                }
+            }
+
+            Console.WriteLine($"Priemerná najnižšia cena letenky je {Math.Round(najnizsiaCena, 2)} v deň {najlepsiDen}");
 
         }
     }
