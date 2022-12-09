@@ -49,5 +49,5 @@ Zadanie_3 zadanie = new Zadanie_3();
 zadanie.MonteCarlo();
 */
 
-Medovniky_Test3 test3 = new Medovniky_Test3();
-test3.MonteCarlo();
+Priklad4 priklad = new Priklad4();
+priklad.MonteCarlo();
