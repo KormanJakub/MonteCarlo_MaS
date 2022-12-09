@@ -9,6 +9,9 @@ priklad1.MonteCarlo();
 Priklad2 priklad2 = new Priklad2();
 priklad2.MonteCarlo();
 
+Priklad4 priklad = new Priklad4();
+priklad.MonteCarlo();
+
 Priklad5 priklad5 = new Priklad5();
 priklad5.MonteCarlo();
 
@@ -49,5 +52,5 @@ Zadanie_3 zadanie = new Zadanie_3();
 zadanie.MonteCarlo();
 */
 
-Priklad4 priklad = new Priklad4();
+Priklad3 priklad = new Priklad3();
 priklad.MonteCarlo();
